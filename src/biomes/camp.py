@@ -77,6 +77,9 @@ class Camp(Biome):
 			print("[.] You don't find anything interesting.")
 			return 'overview'
 		elif inp == "h":
+			if self.resource['animal'] <= 0:
+				print("[.] You found nothing.")
+				return 'overview'
 			if player.energy < 30:
 				print("[!] You are too tired. (min. 30 energy)")
 				return 'overview'
