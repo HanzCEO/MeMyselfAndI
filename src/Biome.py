@@ -2,10 +2,20 @@ import random
 from .utils.print import vprint
 from .utils.math import clamp
 
+from .utils.ui import term
+
 class Biome(object):
-	def __init__(self, name='forest', heat=25):
+	def __init__(self, name='forest', heat=25, color=term.white_on_olivedrab):
 		self.name = name.title()
 		self.heat = heat
+
+		# Distance is in KM
+		self.distance = random.randint(1, 4)
+		# TODO: Maybe add terrain difficulty to consideration of travel_hour?
+		self.travel_hour = self.distance * 1
+
+		# For icon/decoration purpose
+		self.color = color
 
 		# For developers who wants to create new biome:
 		# This variable is not limited to Item name,
@@ -21,6 +31,7 @@ class Biome(object):
 		print()
 		print("=" * 25)
 		print(f"{self.name} ({self.heat}{chr(176)}C)")
+		print("e - Walk to nearby biome")
 		print("r - Rest for a moment")
 		print("s - Sleep. Yes.")
 
@@ -33,6 +44,8 @@ class Biome(object):
 			player.hydration -= vprint("[-] -{0} Hydration", random.randint(0, 20))[0]
 			player.hunger -= vprint("[-] -{0} Hunger", random.randint(0, 20))[0]
 			player.energy += vprint("[+] +{0} Energy", random.randint(100, 200))[0]
+		elif inp == "e":
+			player.dialog_walk_to_biome()
 
 		player.hydration = clamp(player.hydration, 0, 100)
 		player.hunger = clamp(player.hunger, 0, 100)

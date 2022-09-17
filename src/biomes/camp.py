@@ -1,6 +1,7 @@
 import random
 from ..Biome import Biome
 from ..utils.print import vprint
+from ..utils.ui import term
 
 # Lore: Riverside camp
 def camp_generate(rng):
@@ -9,7 +10,7 @@ def camp_generate(rng):
 
 class Camp(Biome):
 	def __init__(self):
-		super().__init__('camp', 27)
+		super().__init__('camp', 27, color=term.orange4_on_palegreen3)
 
 		self.resource['wood'] = 50
 		self.resource['water'] = 10000
