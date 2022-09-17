@@ -90,7 +90,7 @@ class Player(object):
 			# Special interaction with item; consume
 			if itemAct == "consume":
 				# Not consume player bruh, the API has weird application
-				itemAct = selected.consume(player)
+				itemAct = selected.consume(self)
 				# Consumeable has the ability to delete themselve by
 				# returning the value "delete"
 
