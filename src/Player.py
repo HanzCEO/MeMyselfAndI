@@ -18,6 +18,11 @@ class Player(object):
 		self.energy = 100
 		self.body_heat = 100
 
+		from .items.WaterBottle import WaterBottle
+		self.stash(WaterBottle())
+		self.stash(WaterBottle())
+		self.stash(WaterBottle())
+
 	def print(self):
 		print()
 		print("PLAYER STAT")
