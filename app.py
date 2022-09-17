@@ -14,6 +14,8 @@ META_ACTIONS = {
 }
 
 while True:
+	ui.clear()
+
 	player.print()
 	player.get_biome().print()
 
@@ -22,8 +24,6 @@ while True:
 	print()
 
 	inp = input("->] ")
-
-	ui.clear()
 
 	if inp in META_ACTIONS.keys():
 		META_ACTIONS[inp](player)
