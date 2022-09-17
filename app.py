@@ -18,9 +18,7 @@ while True:
 	player.get_biome().print()
 	inp = input("->] ")
 
-	# TODO: Get terminal height
-	print("\n" * 100)
-	print("#" * 25)
+	utils.ui.clear()
 
 	if inp in META_ACTIONS.keys():
 		META_ACTIONS[inp](player)
