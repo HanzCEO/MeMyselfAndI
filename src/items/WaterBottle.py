@@ -1,6 +1,6 @@
 import random
 from ..Item import Item
-from .utils.math import clamp
+from ..utils.math import clamp
 
 # Name: Water Bottle
 # Weight: 0.2kg
