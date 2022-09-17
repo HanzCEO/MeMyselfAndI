@@ -5,7 +5,7 @@ Extends Python's print
 to print and rturn values
 '''
 def vprint(s, *arg, **kwargs):
-	if not kwargs.get('log', False):
+	if kwargs.get('log', False):
 		print(s.format(*arg), **kwargs)
 	else:
 		log(s.format(*arg), **kwargs)
