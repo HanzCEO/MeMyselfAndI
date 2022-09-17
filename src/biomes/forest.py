@@ -53,7 +53,7 @@ class Forest(Biome):
 						return 'overview'
 					else:
 						log(f"[+] +1 Stick")
-				self.resource['wood'] -= reward
+				self.resource['stick'] -= reward
 			elif reward == 0:
 				log("[.] No wood in this so-called forest?? 0 wood.")
 
