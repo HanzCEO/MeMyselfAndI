@@ -28,7 +28,7 @@ BIOME_GENERATORS = dict(
 	savana=(0.4, 0.7),
 	camp=(0.7, 1.0)
 )'''
-BIOME_NOISE = dict(camp=(-1.0, 1.0))
+BIOME_NOISE = dict(camp=(-1.0, 0), forest=(0, 1.0))
 
 # Only for generation
 class RNG(object):
