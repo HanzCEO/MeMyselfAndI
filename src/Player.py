@@ -1,5 +1,6 @@
 from .utils.print import vprint
 from .utils.ui import progress_bar, clear, term, middle, center
+from .Biome import Biome
 
 class Player(object):
 	def __init__(self):
@@ -172,10 +173,16 @@ class Player(object):
 			# For loop
 			for i in range(3):
 				frow = ['', '', '', '', '']
+				cpos = [cord[0] + self.position[0], cord[1] + self.position[1]]
 				for b, pos in adjacent[(i*3):(i*3)+3]:
-					gold = term.on_gold('|') if pos == cord else (term.normal + '|')
-					gold1 = term.on_gold('+') if pos == cord else (term.normal + '+')
-					goldif = (lambda x: term.on_gold(x)) if pos == cord else _n
+					if b is None:
+						b = Biome('VOID', 0, term.black_on_black)
+						b.distance = 0
+						b.travel_hour = 0
+
+					gold = term.on_gold('|') if pos == cpos else (term.normal + '|')
+					gold1 = term.on_gold('+') if pos == cpos else (term.normal + '+')
+					goldif = (lambda x: term.on_gold(x)) if pos == cpos else _n
 
 					# TODO: goldif should activate when row 2 selected
 					if i != 1:
@@ -240,6 +247,12 @@ class Player(object):
 		self.position[1] += cord[1]
 
 		bi = self.environment.get_biome(*self.position)
+
+		# Bro, you can't travel to VOID
+		if bi is None:
+			self.position = d
+			return False
+
 		if d != self.position:
 			self.energy -= vprint("[-] {0} Energy", bi.distance * 20)[0]
 		return True
