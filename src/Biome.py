@@ -43,7 +43,7 @@ class Biome(object):
 		elif inp == "s":
 			player.hydration -= vprint("[-] -{0} Hydration", random.randint(0, 20))[0]
 			player.hunger -= vprint("[-] -{0} Hunger", random.randint(0, 20))[0]
-			player.energy += vprint("[+] +{0} Energy", random.randint(100, 200))[0]
+			player.energy += vprint("[+] +{0} Energy", random.randint(50, 70))[0]
 		elif inp == "e":
 			player.dialog_walk_to_biome()
 
