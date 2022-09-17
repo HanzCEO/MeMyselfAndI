@@ -17,3 +17,4 @@ def log(s, **kwargs):
 def flush_logs():
 	for s, kw in logs:
 		print(s, **kw)
+	logs = list()
