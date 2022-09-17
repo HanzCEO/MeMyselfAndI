@@ -1,3 +1,5 @@
+from .utils.ui import progress_bar
+
 class Player(object):
 	def __init__(self):
 		self.environment = None
@@ -18,11 +20,11 @@ class Player(object):
 		print()
 		print("PLAYER STAT")
 		print("=" * 25)
-		print(f"Health: {self.health}%")
-		print(f"Hydration: {self.hydration}%")
-		print(f"Hunger: {self.hunger}%")
-		print(f"Energy: {self.energy}%")
-		print(f"Body Heat: {self.body_heat}%")
+		print(f"Health: {progress_bar(value=(self.health // 10))}%")
+		print(f"Hydration: {progress_bar(value=(self.hydration // 10))}%")
+		print(f"Hunger: {progress_bar(value=(self.hunger // 10))}%")
+		print(f"Energy: {progress_bar(value=(self.energy // 10))}%")
+		print(f"Body Heat: {progress_bar(value=(self.body_heat // 10))}%")
 
 	def set_environment(self, env):
 		self.environment = env
