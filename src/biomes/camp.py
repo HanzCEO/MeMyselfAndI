@@ -17,6 +17,11 @@ class Camp(Biome):
 		self.resource['animal'] = 3
 		self.resource['corned'] = 5
 
+		self.commands.append("w - Collect wood")
+		self.commands.append("b - Fill water bottles")
+		self.commands.append("f - Find something interesting")
+		self.commands.append("h - Trace animal footprint and hunt them")
+
 	def act(self, player, stage, inp):
 		super().act(player, stage, inp)
 		if inp == "w":
@@ -102,8 +107,3 @@ class Camp(Biome):
 
 	def print(self):
 		super().print()
-
-		log("w - Collect wood")
-		log("b - Fill water bottles")
-		log("f - Find something interesting")
-		log("h - Trace animal footprint and hunt them")

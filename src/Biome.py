@@ -27,13 +27,16 @@ class Biome(object):
 			water=2
 		)
 
+		self.commands = list()
+		self.commands.append("e - Walk to nearby biome")
+		self.commands.append("r - Rest for a moment")
+		self.commands.append("s - Sleep. Yes.")
+
 	def print(self):
 		print()
 		print("=" * 25)
 		print(f"{self.name} ({self.heat}{chr(176)}C)")
-		print("e - Walk to nearby biome")
-		print("r - Rest for a moment")
-		print("s - Sleep. Yes.")
+		for c in self.commands: print(c)
 
 	def act(self, player, stage, inp):
 		if inp == "r":

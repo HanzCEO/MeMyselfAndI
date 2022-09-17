@@ -16,6 +16,10 @@ class Forest(Biome):
 		self.resource['animal'] = random.randint(0, 2)
 		self.resource['berry'] = random.randint(0, 3)
 
+		self.commands.append("w - Search for wood")
+		self.commands.append("f - Find something interesting")
+		self.commands.append("h - Trace animal footprint and hunt them")
+
 	def act(self, player, stage, inp):
 		super().act(player, stage, inp)
 		if inp == "w":
@@ -108,7 +112,3 @@ class Forest(Biome):
 
 	def print(self):
 		super().print()
-
-		log("w - Search for wood")
-		log("f - Find something interesting")
-		log("h - Trace animal footprint and hunt them")
