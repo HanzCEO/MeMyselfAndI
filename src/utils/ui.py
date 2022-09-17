@@ -5,8 +5,8 @@ term = Terminal()
 def clear():
 	print(term.home + term.clear, end="")
 
-def center(s):
-	print(term.center(s))
+def center(s, **kwargs):
+	print(term.center(s), **kwargs)
 
 def middle(offset):
 	print(term.move_y(term.height // 2 + offset), end="")
