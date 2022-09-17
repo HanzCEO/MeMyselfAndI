@@ -1,5 +1,4 @@
-import src.utils
-import src.items
+import src.utils.ui as ui
 from src.Environment import generate_random_environment
 from src.Player import Player
 
@@ -18,7 +17,7 @@ while True:
 	player.get_biome().print()
 	inp = input("->] ")
 
-	utils.ui.clear()
+	ui.clear()
 
 	if inp in META_ACTIONS.keys():
 		META_ACTIONS[inp](player)
