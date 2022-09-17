@@ -1,1 +1,2 @@
 opensimplex==0.4.3
+blessed==1.19.1
