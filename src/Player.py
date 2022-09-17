@@ -20,11 +20,11 @@ class Player(object):
 		print()
 		print("PLAYER STAT")
 		print("=" * 25)
-		print(f"Health: {progress_bar(value=(self.health // 10))}%")
-		print(f"Hydration: {progress_bar(value=(self.hydration // 10))}%")
-		print(f"Hunger: {progress_bar(value=(self.hunger // 10))}%")
-		print(f"Energy: {progress_bar(value=(self.energy // 10))}%")
-		print(f"Body Heat: {progress_bar(value=(self.body_heat // 10))}%")
+		print(f"Health   : {progress_bar(value=(self.health // 10))} {self.health}%")
+		print(f"Hydration: {progress_bar(value=(self.hydration // 10))} {self.hydration}%")
+		print(f"Hunger   : {progress_bar(value=(self.hunger // 10))} {self.hunger}%")
+		print(f"Energy   : {progress_bar(value=(self.energy // 10))} {self.energy}%")
+		print(f"Body Heat: {progress_bar(value=(self.body_heat // 10))} {self.body_heat}%")
 
 	def set_environment(self, env):
 		self.environment = env
