@@ -1,6 +1,6 @@
 import random
 from ..Biome import Biome
-from ..utils.print import vprint
+from ..utils.print import vprint, log
 from ..utils.ui import term
 
 # Lore: Riverside camp
@@ -22,7 +22,7 @@ class Camp(Biome):
 		if inp == "w":
 			# TODO: Difficulty depends on level and daytime
 			if player.energy < 20:
-				print("[!] You don't have enough energy (min. 20)")
+				log("[!] You don't have enough energy (min. 20)")
 				return 'overview'
 
 			reward = random.choices([0, 1, 2], weights=[2, 2, 1])[0]
@@ -32,13 +32,13 @@ class Camp(Biome):
 				from ..items.Wood import Wood
 				for i in range(reward):
 					if not player.stash(Wood()):
-						print("[.] Not enough inventory space.")
+						log("[.] Not enough inventory space.")
 						return 'overview'
 					else:
-						print(f"[+] +1 Wood")
+						log(f"[+] +1 Wood")
 				self.resource['wood'] -= reward
 			elif reward == 0:
-				print("[.] No wood in this so-called forest?? 0 wood.")
+				log("[.] No wood in this so-called forest?? 0 wood.")
 
 			# Energy consumption
 			# TODO: More energy used when summer
@@ -50,17 +50,17 @@ class Camp(Biome):
 		elif inp == "b":
 			bottles = player.search_items_index_by_name("empty-bottle")
 			if len(bottles) == 0:
-				print("[.] You don't have any empty bottle")
+				log("[.] You don't have any empty bottle")
 				return 'overview'
 
 			from ..items.WaterBottle import WaterBottle
 			for index in bottles:
 				del player.inventory[index]
 				if not player.stash(WaterBottle()):
-					print("[!] Not enough inventory for the water bottle")
+					log("[!] Not enough inventory for the water bottle")
 		elif inp == "f":
 			if player.energy < 20:
-				print("[!] You don't have enough energy (min. 20)")
+				log("[!] You don't have enough energy (min. 20)")
 				return 'overview'
 
 			if self.resource['corned'] > 0:
@@ -68,34 +68,34 @@ class Camp(Biome):
 				if random.choices([0, 1], weights=[4, 1])[0] == 1:
 					from ..items.CornedBeef import CornedBeef
 					if not player.stash(CornedBeef()):
-						print("[!] Not enough inventory, corned beef returned.")
+						log("[!] Not enough inventory, corned beef returned.")
 					else:
 						self.resource['corned'] -= 1
-						print("[+] +1 Corned beef")
+						log("[+] +1 Corned beef")
 
 					return 'overview'
 
-			print("[.] You don't find anything interesting.")
+			log("[.] You don't find anything interesting.")
 			return 'overview'
 		elif inp == "h":
 			if self.resource['animal'] <= 0:
-				print("[.] You found nothing.")
+				log("[.] You found nothing.")
 				return 'overview'
 			if player.energy < 30:
-				print("[!] You are too tired. (min. 30 energy)")
+				log("[!] You are too tired. (min. 30 energy)")
 				return 'overview'
 			# TODO: Willpower??
 			if random.choices([0, 1], weights=[19, 1])[0] == 1:
-				print("[.] You just don't want to do it.")
+				log("[.] You just don't want to do it.")
 				return 'overview'
 
 			if random.choices([0, 1], weights=[4, 1])[0] == 1:
 				# TODO: Animal could be boar, deer, etc. Just display name
-				print("[+] You traced an animal. +1 Raw Meat")
+				log("[+] You traced an animal. +1 Raw Meat")
 				# Raw meat, lets go who cares
 				from ..items.RawMeat import RawMeat
 				if not player.stash(RawMeat()):
-					print("[!] Not enough space. Raw meat vaporized somehow")
+					log("[!] Not enough space. Raw meat vaporized somehow")
 
 				# No matter what, animal has been hunted you know?
 				self.resource['animal'] -= 1
@@ -103,7 +103,7 @@ class Camp(Biome):
 	def print(self):
 		super().print()
 
-		print("w - Collect wood")
-		print("b - Fill water bottles")
-		print("f - Find something interesting")
-		print("h - Trace animal footprint and hunt them")
+		log("w - Collect wood")
+		log("b - Fill water bottles")
+		log("f - Find something interesting")
+		log("h - Trace animal footprint and hunt them")

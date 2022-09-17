@@ -1,4 +1,5 @@
 import src.utils.ui as ui
+from src.utils.print import flush_logs
 from src.Environment import generate_random_environment
 from src.Player import Player
 
@@ -15,6 +16,11 @@ META_ACTIONS = {
 while True:
 	player.print()
 	player.get_biome().print()
+
+	print()
+	flush_logs()
+	print()
+
 	inp = input("->] ")
 
 	ui.clear()
