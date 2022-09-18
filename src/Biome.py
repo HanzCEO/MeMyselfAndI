@@ -26,6 +26,8 @@ class Biome(object):
 			wood=5,
 			water=2
 		)
+		# Everything that the player has drop is here.
+		self.stuff = list()
 
 		self.commands = list()
 		self.commands.append("e - Walk to nearby biome")

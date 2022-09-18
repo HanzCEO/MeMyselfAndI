@@ -82,7 +82,8 @@ class Player(object):
 			# Throw item
 			if itemAct == "throw":
 				# Items throwed will be store in the current biome
-				selected.throw_to(self.get_biome())
+				index = self.search_item_index_by_name(selected.name)
+				self.throw_item(index, self.get_biome())
 				# Finally remove the item from our inventory
 				itemAct = "delete"
 
@@ -151,6 +152,12 @@ class Player(object):
 		else:
 			self.inventory.append(item)
 			return True
+
+	def throw_item(self, index, biom):
+		biom.stuff.append(self.inventory[index])
+		# TODO: Allow throw all items qty
+		vprint("[i] You throwed 1 {0} to the current location", self.inventory[index].name)
+		del self.inventory[index]
 
 	def act(self, inp):
 		# XXX: Instead of using self.stage, we could directly use dialog
