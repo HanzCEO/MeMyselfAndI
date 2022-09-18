@@ -34,4 +34,10 @@ class WaterBottle(Item):
 		player.hydration += delta
 		print(f"[$] You consumed a Water Bottle (+{delta} hydration)")
 
-		return "delete"
+		# Give back empty water bottle
+		from .Bottle import Bottle
+		ind = player.search_item_index_by_name(self.name)
+		del player.inventory[ind]
+		player.stash(Bottle())
+
+		return True
