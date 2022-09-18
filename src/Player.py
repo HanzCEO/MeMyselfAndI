@@ -129,7 +129,7 @@ class Player(object):
 		return indexes
 
 	def search_item_index_by_name(self, name):
-		for i, item in enumerate(self_inventory):
+		for i, item in enumerate(self.inventory):
 			if item.name == name:
 				return i
 
