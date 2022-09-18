@@ -12,5 +12,13 @@ class Wood(Item):
 		print("The body of a dead tree.")
 		print()
 		print("Material")
+		print()
 
-		input("Press Enter/Return to close this dialog.")
+		print("t - Throw")
+		print("q - Quit this dialog")
+		inp = input("->] ")
+
+		if inp == "q":
+			return False
+		elif inp == "t":
+			return 'throw'

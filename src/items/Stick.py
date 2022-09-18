@@ -13,4 +13,10 @@ class Stick(Item):
 		print()
 		print("Material")
 
-		input("Press Enter/Return to close this dialog.")
+		print("t - Throw")
+		print("q - Quit this dialog")
+		inp = input("->] ")
+
+		if inp == "t":
+			return 'throw'
+		return False

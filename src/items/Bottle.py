@@ -13,6 +13,8 @@ class WaterBottle(Item):
 		print("-" * 25)
 		print("An empty liquid container.")
 		print()
+		print("Material")
+		print()
 
 		print("t - Throw")
 		print("q - Quit this dialog")

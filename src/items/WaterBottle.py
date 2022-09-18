@@ -17,12 +17,15 @@ class WaterBottle(Item):
 		print()
 		print("+ 30-40 Hydration")
 
+		print("t - Throw")
 		print("c - Consume")
 		print("q - Quit this dialog")
 		inp = input("->] ")
 
 		if inp == "q":
 			return False
+		elif inp == "t":
+			return 'throw'
 		elif inp != "c":
 			return False
 
