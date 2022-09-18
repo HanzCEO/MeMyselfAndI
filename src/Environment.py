@@ -26,8 +26,6 @@ class Environment(object):
 			for x in range(ENV_SIZES[size][0]):
 				self.biomes[y].append(biomerng.getxy(x, y))
 
-		print(self.biomes)
-
 	def get_biome(self, x, y):
 		# (0, 0) must be the center
 		centerX = self.size[0] // 2
