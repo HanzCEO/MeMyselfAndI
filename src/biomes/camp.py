@@ -53,7 +53,7 @@ class Camp(Biome):
 			player.energy -= vprint("[.] -{0} Energy", random.randint(5, 20))[0]
 			return 'overview'
 		elif inp == "b":
-			bottles = player.search_items_index_by_name("empty-bottle")
+			bottles = player.search_items_index_by_name("bottle")
 			if len(bottles) == 0:
 				log("[.] You don't have any empty bottle")
 				return 'overview'
