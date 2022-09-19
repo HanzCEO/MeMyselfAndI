@@ -16,6 +16,7 @@ META_ACTIONS = {
 while True:
 	ui.clear()
 
+	player.turn_check()
 	player.print()
 	player.get_biome().print()
 

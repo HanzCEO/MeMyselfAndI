@@ -23,6 +23,20 @@ class Player(object):
 		self.stash(WaterBottle())
 		self.stash(WaterBottle())
 
+	def turn_check(self):
+		if self.health <= 0:
+			vprint("[!] You're dead.")
+			# TODO: Print stats and go to menu after death
+			exit()
+		if self.hydration <= 0:
+			self.health += self.hydration + (-5)
+		if self.hunger <= 0:
+			self.health += self.hunger + (-5)
+		if self.body_heat <= 0:
+			self.hunger -= 10
+			self.hydration -= 10
+			self.body_heat += 10
+
 	def print(self):
 		print()
 		print("PLAYER STAT")
