@@ -4,7 +4,7 @@ from ..utils.math import clamp
 
 # Name: Bottle
 # Weight: 0.05kg
-class WaterBottle(Item):
+class Bottle(Item):
 	def __init__(self):
 		super().__init__('bottle', 0.05)
 
