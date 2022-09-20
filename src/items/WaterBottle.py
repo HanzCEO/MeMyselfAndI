@@ -15,7 +15,7 @@ class WaterBottle(Item):
 		print()
 		print("Consumeable")
 		print()
-		print("+ 30-40 Hydration")
+		print("+ 50-70 Hydration")
 
 		print("t - Throw")
 		print("c - Consume")
@@ -33,7 +33,7 @@ class WaterBottle(Item):
 		return "consume"
 
 	def consume(self, player):
-		delta = clamp(player.hydration + random.randint(30, 40), 0, 100) - player.hydration
+		delta = clamp(player.hydration + random.randint(50, 70), 0, 100) - player.hydration
 		player.hydration += delta
 		print(f"[$] You consumed a Water Bottle (+{delta} hydration)")
 
